@@ -6,14 +6,16 @@ class Map extends Component {
 
   //component finished the thing it needed to do
   componentDidMount() {
+    const app = this.props.app
+
     mapbox.accessToken = 'pk.eyJ1IjoibWFkZWxpbmV1cmliZXMiLCJhIjoiY2tlZDd0Z2pvMDMxMTJ5bXo2eXZiNTY4ayJ9.rfyeR7RCqUG9tv4KGHfSSg';
 
     const map = new mapbox.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/dark-v9',
+      style: app.state.style,
       center: [
-        -74.0060,
-        40.7128
+        app.state.longitude,
+        app.state.latitude
       ],
       zoom: 12
     });
