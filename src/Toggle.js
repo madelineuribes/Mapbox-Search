@@ -17,7 +17,13 @@ class Toggle extends Component {
     ]
 
     const buttons = styles.map(style => {
-      return <button onClick={() => this.setLayer(style.url)}>
+      let className = ""
+
+      if (style.url === this.props.app.state.style) {
+        className = "selected"
+      }
+
+      return <button className={className} onClick={() => this.setLayer(style.url)}>
         {style.name}
       </button>
     })

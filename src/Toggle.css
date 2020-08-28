@@ -2,6 +2,20 @@ div.toggle {
   position: fixed;
   bottom: 40px;
   left: 20px;
-  background-color: #ffffff;
   z-index: 1;
+}
+
+div.toggle button {
+  background-color: #ffffff;
+  appearance: none;
+  border: none;
+  font-family: inherit;
+  padding: 5px 10px 5px 10px;
+  margin: 0 1px 0 0;
+  color: #999999;
+  outline: none;
+}
+
+div.toggle button.selected {
+  color: #000000;
 }
