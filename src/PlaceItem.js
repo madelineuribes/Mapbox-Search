@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import mapbox from 'mapbox-gl';
 
 class PlaceItem extends Component {
+
+  goTo() {
+    const app = this.props.app
+    const map = app.state.map
+    const place = this.props.place
+
+    map.flyTo({
+      center: [place.longitude, place.latitude],
+      zoom: 10
+    })
+  }
+
   render() {
 
     const app = this.props.app
@@ -31,7 +43,7 @@ class PlaceItem extends Component {
     }
 
     return (
-      <div className="place-item">
+      <div className="place-item" onClick={() => this.goTo()}>
         {place.name} ({place.latitude}, {place.longitude})
       </div>
     )
