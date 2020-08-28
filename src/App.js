@@ -17,9 +17,7 @@ class App extends Component {
       longitude: -74.006,
       style: 'mapbox://styles/mapbox/dark-v9',
       places: [
-        { name: "13 Crosby Street", latitude: 40.7128, longitude: -74.006 },
-        { name: "13 Crosby Street", latitude: 40.7128, longitude: -74.006 },
-        { name: "13 Crosby Street", latitude: 40.7128, longitude: -74.006 }
+
       ]
     } // state - hold some stuff that might change
   }

@@ -6,9 +6,13 @@ class PlacesPanel extends Component {
   render() {
     const places = this.props.app.state.places
 
-    const placeItems = places.map(place => {
-      return <PlaceItem place={place} />
-    })
+    let placeItems = <div className="no-results">Nothing added yet</div>
+
+    if (places.length > 0) {
+      placeItems = places.map(place => {
+        return <PlaceItem place={place} />
+      })
+    }
 
     return (
       <div className="places">
