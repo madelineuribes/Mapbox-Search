@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Map from './Map';
 import Toggle from './Toggle';
+import Search from './Search';
 import './App.css';
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Search app={this} />
         <Toggle app={this} />
         <Map app={this} />
       </div>
