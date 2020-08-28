@@ -23,21 +23,30 @@ class Search extends Component {
   handleSubmit(event) {
     event.preventDefault()
 
-    const places = this.props.app.state.oldPlaces
+    const accessToken = "pk.eyJ1IjoibWFkZWxpbmV1cmliZXMiLCJhIjoiY2tlZDd0Z2pvMDMxMTJ5bXo2eXZiNTY4ayJ9.rfyeR7RCqUG9tv4KGHfSSg"
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.value}.json?access_token=${accessToken}`
 
-    places.push({
-      name: this.state.value,
-      latitude: 40,
-      longitude: -72
-    })
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const places = this.props.app.state.places
+        const firstResult = data.features[0]
 
-    this.props.app.setState({
-      places: places
-    })
+        places.push({
+          name: this.state.value,
+          latitude: firstResult.center[1],
+          longitude: firstResult.center[0]
+        })
 
-    this.setState({
-      value: ""
-    })
+        this.props.app.setState({
+          places: places
+        })
+
+        this.setState({
+          value: ""
+        })
+      })
+
   }
 
   render() {
