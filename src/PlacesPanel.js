@@ -10,7 +10,7 @@ class PlacesPanel extends Component {
 
     if (places.length > 0) {
       placeItems = places.map((place, index) => {
-        return <PlaceItem place={place} key={index} />
+        return <PlaceItem place={place} app={this.props.app} key={index} />
       })
     }
 
